@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Piedra, Papel o Tijera</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            height: 100vh;
+            justify-content: center;
+        }
+        .top-section {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .box {
+            width: 30%;
+            padding: 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .counter-box {
+            width: 30%;
+            padding: 20px;
+            background-color: #2ecc71;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .instructions-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .instructions-box {
+            width: 30%;
+            padding: 20px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px; /* Espacio debajo de las instrucciones */
+        }
+        .options-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .option-box, .vs-box, .machine-box {
+            padding: 20px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            width: 20%;
+        }
+        .options-row {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+        .option {
+            width: 80px; /* Reducir tamaño */
+            height: 80px; /* Reducir tamaño */
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #9b59b6;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .option img {
+            width: 100%; /* Ajustar el tamaño dentro del contenedor */
+            height: auto; /* Mantener la proporción */
+        }
+        .hidden {
+            display: none;
+        }
+        #startButton, #nextButton {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-section">
+        <div class="box">
+            <h2>Texto</h2>
+            <p>Bienvenido al juego de Piedra, Papel o Tijera.</p>
+        </div>
+        <div class="counter-box" id="counter">
+            <h2>Partidas ganadas</h2>
+            <p id="counterValue">0/3</p>
+        </div>
+    </div>
+    <div class="instructions-container">
+        <div class="instructions-box">
+            <h2>Instrucciones 2</h2>
+            <p>Elige una opción para jugar contra la máquina.</p>
+        </div>
+        <div class="options-container">
+            <div class="option-box" id="chosenOption">
+                <h2>Opción Elegida</h2>
+                <img id="chosenImage" src="" alt="Tu elección" class="hidden">
+            </div>
+            <div class="vs-box">
+                <h2>VS</h2>
+            </div>
+            <div class="machine-box" id="machineOption">
+                <h2>Opción Máquina</h2>
+                <img id="machineImage" src="" alt="Elección de la máquina" class="hidden">
+            </div>
+        </div>
+        <div class="options-row">
+            <div class="option" onclick="play(1)">
+                <img src="./images/piedra.png" alt="Piedra">
+            </div>
+            <div class="option" onclick="play(2)">
+                <img src="./images/papel.png" alt="Papel">
+            </div>
+            <div class="option" onclick="play(3)">
+                <img src="./images/tijeras.png" alt="Tijera">
+            </div>
+        </div>
+        <button id="startButton" onclick="startGame()">Iniciar</button>
+        <button id="nextButton" onclick="nextPage()" class="hidden">Siguiente</button>
+    </div>
+
+    <script>
+        let winCount = 0;
+
+        function startGame() {
+            document.getElementById('startButton').style.display = 'none';
+            document.querySelector('.options-row').style.pointerEvents = 'auto';
+        }
+
+        function play(playerChoice) {
+            const choices = ["piedra", "papel", "tijeras"];
+            const machineChoice = Math.floor(Math.random() * 3) + 1;
+
+            // Mostrar la imagen de la opción elegida por el jugador
+            document.getElementById('chosenImage').src = './images/' + choices[playerChoice - 1] + '.png';
+            document.getElementById('chosenImage').classList.remove('hidden');
+
+            // Mostrar la imagen de la opción elegida por la máquina
+            document.getElementById('machineImage').src = './images/' + choices[machineChoice - 1] + '.png';
+            document.getElementById('machineImage').classList.remove('hidden');
+
+            // Esperar un momento para que las imágenes se muestren antes de la comparación
+            setTimeout(() => {
+                if (playerChoice === machineChoice) {
+                    alert('Es un empate');
+                } else if ((playerChoice === 1 && machineChoice === 3) || 
+                           (playerChoice === 2 && machineChoice === 1) || 
+                           (playerChoice === 3 && machineChoice === 2)) {
+                    winCount++;
+                    document.getElementById('counterValue').innerText = winCount + '/3';
+                    alert('¡Has ganado esta partida!');
+                } else {
+                    alert('La máquina ha ganado esta partida');
+                }
+
+                if (winCount >= 3) {
+                    alert('¡Has ganado 3 partidas!');
+                    // Mostrar botón "Siguiente"
+                    document.getElementById('nextButton').classList.remove('hidden');
+                    // Deshabilitar las opciones de juego
+                    document.querySelector('.options-row').style.pointerEvents = 'none';
+                }
+            }, 500); // Esperar 500ms para que las imágenes se muestren antes de la comparación
+        }
+
+        function nextPage() {
+            window.location.href = "reto_3.html";
+        }
+    </script>
+</body>
+</html>
