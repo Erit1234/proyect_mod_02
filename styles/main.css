@@ -1,0 +1,83 @@
+body {
+
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f098;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    display: block;
+    align-items: center;
+}
+
+.rectangle {
+    background-color: #3498db;
+    color: white;
+    padding: 4rem;
+    margin: 8rem 20rem 7rem 20rem;
+    border-radius: 18px;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.oval {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: white;
+    margin: 0 4rem;
+    padding: 3rem 5rem;
+    border-radius: 76px;
+    cursor: pointer;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+/* diseño de instrucciones y temporizador */
+.top-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.box {
+    width: 40%;
+    padding: 20px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#startButton {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 16px; 
+}
