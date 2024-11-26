@@ -18,8 +18,8 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="./images/vs_logo.png" alt="Logo" width="30"
-                    height="24" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="#"><img src="./images/vs_logo.png" alt="Logo" width="30" height="24"
+                    class="d-inline-block align-text-top">
                 PROY2</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,46 +41,49 @@
         </div>
     </nav>
 
-          <div class="top-section">
-            <div class="box">
-                <h2>Reto 2</h2>
-                <p>Es el clasico juego “piedra papel o tijeras”, gana dos de tres partidas para ganar el reto.</p>
+    <div class="top-section">
+        <div class="box">
+            <h2>Reto 2</h2>
+            <p>Es el clasico juego “piedra papel o tijeras”, gana dos de tres partidas para ganar el reto.</p>
+        </div>
+        <div class="counter-box" id="counter">
+            <h2>Partidas ganadas</h2>
+            <p id="counterValue">0/3</p>
+        </div>
+    </div>
+    <div class="instructions-container">
+        <div class="instructions-box">
+            <h2>INSTRUCCIONES</h2>
+            <p>Haz click en el boton iniciar para comenzar a jugar. Haz click sobre la imagen para elegir una opcion.<br>Suerte.</p>
+        </div>
+        <div class="options-container">
+            <div class="option-box" id="chosenOption">
+                <h2>Opción Elegida</h2> 
+                <img id="chosenImage" src="" alt="Tu elección" class="hidden">
             </div>
-            <div class="counter-box" id="counter">
-                <h2>Partidas ganadas</h2>
-                <p id="counterValue">0/3</p>
+            <div class="vs-box">
+                <h2>VS</h2>
+                <img src="./images/vs.png" alt="VS">
+            </div>
+            <div class="machine-box" id="machineOption">
+                <h2>Opción Máquina</h2> 
+                <img id="machineImage" src="" alt="Elección de la máquina" class="hidden">
             </div>
         </div>
-        <div class="instructions-container">
-            <div class="instructions-box">
-                <h2>INSTRUCCIONES</h2>
-                <p>Haz click en el boton iniciar para comenzar a jugar. Haz click sobre la imagen para elegir una opcion.
-                    <br>Suerte.
-                </p>
-            </div>
-            <div class="options-container">
-                <div class="option-box" id="chosenOption">
-                    <h2>Opción Elegida</h2> <img id="chosenImage" src="" alt="Tu elección" class="hidden">
-                </div>
-                <div class="vs-box">
-                    <h2>VS</h2><img src="./images/vs.png" alt="VS">
-                </div>
-                <div class="machine-box" id="machineOption">
-                    <h2>Opción Máquina</h2> <img id="machineImage" src="" alt="Elección de la máquina" class="hidden">
-                </div>
-            </div>
-            <div class="options-row">
-                <div class="option" onclick="play(1)"> <img src="./images/piedra.png" alt="Piedra"> </div>
-                <div class="option" onclick="play(2)"> <img src="./images/papel.png" alt="Papel"> </div>
-                <div class="option" onclick="play(3)"> <img src="./images/tijeras.png" alt="Tijera"> </div>
-            </div> <button id="startButton" onclick="startGame()">Iniciar</button> 
-            <button id="nextButton" onclick="nextPage()" class="hidden">Siguiente</button>
+        <div class="options-row">
+            <div class="option" onclick="play(1)"> <img src="./images/piedra.png" alt="Piedra"> </div>
+            <div class="option" onclick="play(2)"> <img src="./images/papel.png" alt="Papel"> </div>
+            <div class="option" onclick="play(3)"> <img src="./images/tijeras.png" alt="Tijera"> </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="./scripts/main.js"></script>
-        <script type="text/javascript" src="./scripts/ret2.js"></script>
+        <button id="startButton" onclick="startGame()">Iniciar</button>
+        <button id="nextButton" onclick="nextPage()" class="hidden">Siguiente</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./scripts/main.js"></script>
+    <script type="text/javascript" src="./scripts/ret2.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-let winCount = 0;
+let winCount = 0; //contador de partidas
 
 function startGame() {
     document.getElementById('startButton').style.display = 'none';
@@ -9,15 +9,15 @@ function play(playerChoice) {
     const choices = ["piedra", "papel", "tijeras"];
     const machineChoice = Math.floor(Math.random() * 3) + 1;
 
-    // Mostrar la imagen de la opción elegida por el jugador
+    // muestra la imagen
     document.getElementById('chosenImage').src = './images/' + choices[playerChoice - 1] + '.png';
     document.getElementById('chosenImage').classList.remove('hidden');
 
-    // Mostrar la imagen de la opción elegida por la máquina
+    // muestra la imagen
     document.getElementById('machineImage').src = './images/' + choices[machineChoice - 1] + '.png';
     document.getElementById('machineImage').classList.remove('hidden');
 
-    // Esperar un momento para que las imágenes se muestren antes de la comparación
+    // llas imágenes se muestran antes comparar
     setTimeout(() => {
         if (playerChoice === machineChoice) {
             alert('Es un empate');
@@ -26,19 +26,19 @@ function play(playerChoice) {
                    (playerChoice === 3 && machineChoice === 2)) {
             winCount++;
             document.getElementById('counterValue').innerText = winCount + '/3';
-            alert('¡Has ganado esta partida!');
+            alert('¡Has ganado esta partid!');
         } else {
             alert('La máquina ha ganado esta partida');
         }
 
         if (winCount >= 3) {
-            alert('¡Has ganado 3 partidas!');
-            // Mostrar botón "Siguiente"
+            alert('¡Has ganado 3 partdas!');
+            // mostra botón "Siguiente"
             document.getElementById('nextButton').classList.remove('hidden');
-            // Deshabilitar las opciones de juego
+            // oausa las opciones de juego
             document.querySelector('.options-row').style.pointerEvents = 'none';
         }
-    }, 500); // Esperar 500ms para que las imágenes se muestren antes de la comparación
+    }, 500); //espera .5s antes de comparar
 }
 
 function nextPage() {
