@@ -42,5 +42,5 @@ function play(playerChoice) {
 }
 
 function nextPage() {
-    window.location.href = "reto_3.html";
+    window.location.href = "resultados.html";
 }

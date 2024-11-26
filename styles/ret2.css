@@ -3,6 +3,7 @@
     width: 100%;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en múltiples filas */
 }
 .box {
     width: 30%;
@@ -11,14 +12,18 @@
     color: white;
     border-radius: 10px;
     text-align: center;
+    margin-bottom: 20px;
+    font-size: 1rem;
 }
 .counter-box {
     width: 30%;
     padding: 20px;
-    background-color: #2ecc71;
+    background-color: #00b94d;
     color: white;
     border-radius: 10px;
     text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
 }
 .instructions-container {
     display: flex;
@@ -28,9 +33,9 @@
     margin-top: 20px;
 }
 .instructions-box {
-    width: 30%;
+    width: 100%; /* Asegura que las instrucciones ocupen todo el ancho en pantallas pequeñas */
     padding: 20px;
-    background-color: #e74c3c;
+    background-color: #1234dc;
     color: white;
     border-radius: 10px;
     text-align: center;
@@ -38,31 +43,39 @@
 }
 .options-container {
     display: flex;
-    width: 100%;
+    width: 80%;
     justify-content: space-between;
-    margin-top: 20px;
+    margin: 20px 10%;
+    
+     /* Permite que los elementos se ajusten en múltiples filas */
 }
 .option-box, .vs-box, .machine-box {
     padding: 20px;
-    background-color: #e74c3c;
+    background-color: #dad6d6;
     color: white;
     border-radius: 10px;
     text-align: center;
-    width: 20%;
+    width: 30%; /* Ajustar el ancho para pantallas pequeñas */
+    margin-bottom: 20px; /* Añadir margen inferior para espaciado vertical */
+}
+.option-box img, .vs-box img, .machine-box img{
+    width: 100%;
+    height: auto;
 }
 .options-row {
     display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en múltiples filas */
     justify-content: flex-start;
     margin-top: 20px;
 }
 .option {
     width: 80px; /* Reducir tamaño */
     height: 80px; /* Reducir tamaño */
-    margin: 0 10px;
+    margin: 10px; /* Añadir margen para espaciado */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #9b59b6;
+    background-color: #eeefde;
     color: white;
     border-radius: 10px;
     cursor: pointer;
@@ -76,18 +89,40 @@
 }
 #startButton, #nextButton {
     padding: 10px 20px;
-    background-color: #e74c3c;
+    background-color: #2f4be8;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 20px;
+    margin: 20px 40%;
+    width: 20%; /* Asegura que el botón ocupe todo el ancho en pantallas pequeñas */
 }
-.option-box,.machine-box,.vs-box{
-    width: 20rem;
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .box, .counter-box {
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+    }
+    .option-box, .vs-box, .machine-box {
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+    }
+    .option {
+        width: 60px; /* Reducir tamaño para pantallas pequeñas */
+        height: 60px; /* Reducir tamaño para pantallas pequeñas */
+    }
+    #startButton, #nextButton {
+        font-size: 14px; /* Reducir tamaño de fuente en pantallas pequeñas */
+    }
 }
-.option-box img,.machine-box img,.vs-box img{
-    width: 80%;
-    height: auto;
+
+/* Reducir tamaño para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .option {
+        width: 50px; 
+        height: 50px; 
+    }
+    #startButton, #nextButton {
+        font-size: 12px; /
+    }
 }
